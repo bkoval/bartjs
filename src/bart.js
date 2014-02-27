@@ -44,6 +44,7 @@ var b = ( function() {
 	HTMLElement.prototype.on = function ( event, handler ) {
 		this.addEventListener( event, handler, false );
 	}
+	HTMLDocument.prototype.on = HTMLElement.prototype.on;
 
 	return{
 		on: on,
