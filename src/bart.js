@@ -41,7 +41,7 @@ var b = ( function() {
 	}
 
 	//Add covenient and short method for adding events
-	HTMLElement.prototype.on ( event, handler ) {
+	HTMLElement.prototype.on = function ( event, handler ) {
 		this.addEventListener( event, handler, false );
 	}
 
