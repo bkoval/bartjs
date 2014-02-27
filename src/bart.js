@@ -1,5 +1,6 @@
 var b = ( function() {
 
+	//Holder of the event subscriptions
 	var events = {};
 
 	//Subscribe for a custom event
