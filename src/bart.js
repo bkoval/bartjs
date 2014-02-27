@@ -1,4 +1,7 @@
-var b = ( function() {
+var b = ( function( w, d ) {
+
+	//Holder of the event subscriptions
+	var events = {};
 
 	//Exceptions
 	function InvalidArgumentException () {
@@ -6,9 +9,6 @@ var b = ( function() {
    		this.name = 'IllegalArgument';
    		this.toString = function(){ return this.name + this.message; };
 	}
-
-	//Holder of the event subscriptions
-	var events = {};
 
 	//Subscribe for a custom event
 	function on ( event, handler ) {
@@ -36,15 +36,28 @@ var b = ( function() {
 		}
 	}
 
-	//Add covenient and short method for adding events
+	//Short method for adding events
 	HTMLElement.prototype.on = function ( event, handler ) {
 		this.addEventListener( event, handler, false );
 	}
+
 	HTMLDocument.prototype.on = HTMLElement.prototype.on;
 
+	//Shortcuts for selectors API
+	find = d.querySelector;
+	findAll = d.querySelectorAll;
+	findId = d.getElementById;
+	findClass = d.getElementsByClassName;
+	findTag = d.getElementsByTagName;
+
 	return{
-		on: on,
-		emit: emit
+		on : on,
+		emit : emit,
+		find : find,
+		findAll : findAll,
+		findId : findId,
+		findClass : findClass,
+		findTag : findTag
 	}
 
-} )();
+} )( window, document );
