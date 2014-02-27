@@ -2,14 +2,8 @@ var b = ( function() {
 
 	//Exceptions
 	function InvalidArgumentException () {
-   		this.message = ': Illegal Type Of Argument Passed To The Function';
-   		this.name = 'IllegalArgumentException';
-   		this.toString = function(){ return this.name + this.message; };
-	}
-
-	function MissingArgumentException () {
-   		this.message = ': One Of The Arguments Is Missing';
-   		this.name = 'IllegalArgumentException';
+   		this.message = ': Empty Or Illegal Argument Passed To The Function';
+   		this.name = 'IllegalArgument';
    		this.toString = function(){ return this.name + this.message; };
 	}
 
@@ -18,11 +12,8 @@ var b = ( function() {
 
 	//Subscribe for a custom event
 	function on ( event, handler ) {
-		if ( typeof event !== 'string' || typeof handler !== 'function' ){
+		if ( typeof event !== 'string' || !event || typeof handler !== 'function' ){
 			throw new InvalidArgumentException();
-		}
-		if ( !event ){
-			throw new MissingArgumentException();
 		}
 
 		if ( !events[event] ) {
@@ -36,7 +27,7 @@ var b = ( function() {
 	//Emit a custom event to all subscribers
 	function emit ( event ) {
 		if ( !event ){
-			throw new MissingArgumentException();
+			throw new InvalidArgumentException();
 		}
 		if ( events[event] ) {
 			events[event].forEach( function( handler ) {
