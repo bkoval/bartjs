@@ -1,15 +1,17 @@
-var b = ( function(){
+var b = ( function() {
 
 	var events = {};
 
-	function subscribe ( event, handler ) {
+	//Subscribe for a custom event
+	function on ( event, handler ) {
 		if ( !events[event] ) {
 			events[event] = [];
 		}
 		events[event].push( handler );
 	}
 
-	function publish ( event ) {
+	//Emit a custom event to all subscribers
+	function emit ( event ) {
 		if ( events[event] ) {
 			events[event].forEach( function( handler ) {
 				handler();
@@ -17,9 +19,14 @@ var b = ( function(){
 		}
 	}
 
+	//Add covenient and short method for adding events
+	HTMLElement.prototype.on ( event, handler ) {
+		this.addEventListener( event, handler, false );
+	}
+
 	return{
-		publish: publish,
-		subscribe: subscribe
+		on: on,
+		emit: emit
 	}
 
 } )();
