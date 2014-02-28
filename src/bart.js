@@ -47,15 +47,19 @@ var b = ( function( w, d ) {
 	function find ( sel ) {
 		return d.querySelector( sel ) ;
 	}
+
 	function findAll ( sel ) {
 		return d.querySelectorAll( sel ) ;
 	}
+
 	function findId ( sel ) {
 		return d.getElementById( sel ) ;
 	}
+
 	function findClass ( sel ) {
 		return d.getElementsByClassName( sel ) ;
 	}
+	
 	function findTag ( sel ) {
 		return d.getElementsByTagName( sel ) ;
 	}
