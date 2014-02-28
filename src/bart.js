@@ -30,9 +30,11 @@ var b = ( function( w, d ) {
 			throw new InvalidArgumentException();
 		}
 		if ( events[event] ) {
-			events[event].forEach( function( handler ) {
+			setTimeout( function(){
+				events[event].forEach( function( handler ) {
 				handler();
 			} );
+			}, 0 )
 		}
 	}
 
@@ -59,7 +61,7 @@ var b = ( function( w, d ) {
 	function findClass ( sel ) {
 		return d.getElementsByClassName( sel ) ;
 	}
-	
+
 	function findTag ( sel ) {
 		return d.getElementsByTagName( sel ) ;
 	}
