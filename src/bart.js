@@ -48,16 +48,16 @@ var b = ( function( w, d ) {
 		return d.querySelector( sel ) ;
 	}
 	function findAll ( sel ) {
-		return d.querySelector( sel ) ;
+		return d.querySelectorAll( sel ) ;
 	}
 	function findId ( sel ) {
-		return d.querySelector( sel ) ;
+		return d.getElementById( sel ) ;
 	}
 	function findClass ( sel ) {
-		return d.querySelector( sel ) ;
+		return d.getElementsByClassName( sel ) ;
 	}
 	function findTag ( sel ) {
-		return d.querySelector( sel ) ;
+		return d.getElementsByTagName( sel ) ;
 	}
 
 	return{
