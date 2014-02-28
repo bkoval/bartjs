@@ -44,11 +44,21 @@ var b = ( function( w, d ) {
 	HTMLDocument.prototype.on = HTMLElement.prototype.on;
 
 	//Shortcuts for selectors API
-	find = d.querySelector;
-	findAll = d.querySelectorAll;
-	findId = d.getElementById;
-	findClass = d.getElementsByClassName;
-	findTag = d.getElementsByTagName;
+	function find ( sel ) {
+		return d.querySelector( sel ) ;
+	}
+	function findAll ( sel ) {
+		return d.querySelector( sel ) ;
+	}
+	function findId ( sel ) {
+		return d.querySelector( sel ) ;
+	}
+	function findClass ( sel ) {
+		return d.querySelector( sel ) ;
+	}
+	function findTag ( sel ) {
+		return d.querySelector( sel ) ;
+	}
 
 	return{
 		on : on,
